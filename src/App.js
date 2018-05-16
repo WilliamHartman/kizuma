@@ -5,13 +5,13 @@ import './App.css';
 class App extends Component {
   handleClick() {
     console.log('clicked')
-    axios.get('http://localhost:8084/auth/me')
+    axios.get('/auth/me')
       .then( (res) => console.log(res))
   }
   render() {
     return (
       <div className="App">
-        <a href={'http://localhost:3000/auth'}><button>Login</button></a>
+        <a href={'http://localhost:8084/auth'}><button>Login</button></a>
         <button onClick={this.handleClick}>Get User Info</button>
       </div>
     );
