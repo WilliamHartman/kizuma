@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Navbar from './components/Navbar/Navbar';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         <a href={'http://localhost:8084/auth'}><button>Login</button></a>
         <button onClick={this.handleClick}>Get User Info</button>
       </div>

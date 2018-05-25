@@ -43,7 +43,6 @@ const strategy = new Auth0Strategy({
     
     db.find_user([userData.identities[0].user_id]).then(user => {
     if (user[0]) {
-        console.log(user[0])
         return done(null, user[0].id);
     } else {
         db.create_user([
@@ -63,7 +62,6 @@ passport.use(strategy)
 
 
 passport.serializeUser( (user, done) => {
-    //console.log('serializeuser', user)
     done(null, user);
 }) 
 
@@ -80,8 +78,6 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 app.get('/auth/me', (req, res) => {
-    console.log('auth/me endpoint hit')
-    console.log(req.user)
     if(!req.user){
         console.log('if(!req.user) === true')
         return res.status(401).send('No user logged in.');
