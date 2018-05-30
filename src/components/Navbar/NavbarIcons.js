@@ -6,11 +6,8 @@ import MDSchool from 'react-icons/lib/md/store';
 import MDNote from 'react-icons/lib/md/notifications-active';
 import MDNoteNone from 'react-icons/lib/md/notifications-none';
 import MDProfile from 'react-icons/lib/md/account-circle';
-import { CLIENT_RENEG_LIMIT } from 'tls';
 
 export default function NavbarIcons(props){
-    console.log(props)
-
     const selectedBar = () => {
             return <div className="navbar-selected-bar"></div>
     }
@@ -18,7 +15,6 @@ export default function NavbarIcons(props){
     switch(props.icon){
         case 'home':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDHome 
@@ -38,7 +34,6 @@ export default function NavbarIcons(props){
 
         case 'network':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDPeople
@@ -58,7 +53,6 @@ export default function NavbarIcons(props){
         
         case 'schools':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDSchool
@@ -78,7 +72,6 @@ export default function NavbarIcons(props){
         
         case 'messaging':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDChat
@@ -98,7 +91,6 @@ export default function NavbarIcons(props){
         
         case 'notifications':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDNote
@@ -118,7 +110,6 @@ export default function NavbarIcons(props){
         
         case 'profile':
             if(props.currentPage === props.icon){
-                console.log('true')
                 return(
                     <div className="navbar-icons-selected">
                         <MDProfile

@@ -71,6 +71,7 @@
     display: flex;
     margin-left: 30px;
     flex-direction: row;
+    text-decoration: none;
 }
 
 .navbar-icons {

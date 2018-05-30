@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserData } from "../../redux/reducer";
+import { getUserData, updateCurrentPage } from "../../redux/reducer";
 import "./Navbar.css";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 import MDSearch from 'react-icons/lib/md/search.js';
-import MDHome from 'react-icons/lib/md/home';
-import MDChat from 'react-icons/lib/md/chat';
-import MDPeople from 'react-icons/lib/md/people';
-import MDSchool from 'react-icons/lib/md/store';
-import MDNote from 'react-icons/lib/md/notifications-active';
-import MDNoteNone from 'react-icons/lib/md/notifications-none';
-import MDProfile from 'react-icons/lib/md/account-circle';
 import logo from '../../assets/kizuma-logo-eng.svg';
 import { withRouter } from "react-router";
 
@@ -29,7 +21,7 @@ class Navbar extends Component {
         }
 
     this.handleInput = this.handleInput.bind(this);
-    //this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
     this.checkEnter = this.checkEnter.bind(this);
     }
 
@@ -43,6 +35,10 @@ class Navbar extends Component {
 
     handleInput(e) {
         this.setState({ searchTerm: e.target.value });
+    }
+
+    handleSearchClick(){
+        
     }
 
     checkEnter = (e) => {
@@ -84,26 +80,19 @@ class Navbar extends Component {
                             />
                             <Link to='/results'>                        
                                 <div onClick={this.handleSearchClick} className='navbar-search-button'>
-                                    <MDSearch 
-                                    size={30}/>
+                                    <MDSearch size={30}/>
                                 </div>
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div className="navbar-right">
-                    {/* <div className="navbar-home navbar-icons">
-                        <MDHome 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Home</div>
-                        {this.selectedBar('home')}
-                    </div> */}
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'home'} />
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'network'} />
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'schools'} />
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'messaging'} />
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'notifications'} />
-                    <NavbarIcons currentPage={this.props.currentPage} icon={'profile'} />
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('home')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'home'} /> </Link>
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('network')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'network'} /> </Link>
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('schools')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'schools'} /> </Link>
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('messaging')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'messaging'} /> </Link>
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('notifications')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'notifications'} /> </Link>
+                    <Link to='/' onClick={() => this.props.updateCurrentPage('profile')} style={{ textDecoration: 'none' }}><NavbarIcons currentPage={this.props.currentPage} icon={'profile'} /> </Link>
                 </div>
                 {/* <a href={'http://localhost:8084/auth'} className="login-text">
                     <p className="login nav-button">LOGIN</p>
@@ -122,5 +111,5 @@ const mapStateToProps = state => {
   };
   
   export default withRouter(
-    connect(mapStateToProps, { getUserData })(Navbar)
+    connect(mapStateToProps, { getUserData, updateCurrentPage })(Navbar)
   );
