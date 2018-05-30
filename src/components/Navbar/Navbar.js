@@ -92,43 +92,18 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <div className="navbar-right">
-                    <div className="navbar-home navbar-icons">
+                    {/* <div className="navbar-home navbar-icons">
                         <MDHome 
                         size={25}/>
                         <div className='navbar-icon-text'>Home</div>
                         {this.selectedBar('home')}
-                    </div>
-                    <div className="navbar-network navbar-icons">
-                        <MDPeople 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Network</div>
-                        {this.selectedBar('network')}
-                    </div>
-                    <div className="navbar-schools navbar-icons">
-                        <MDSchool 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Schools</div>
-                        {this.selectedBar('schools')}
-                    </div>
-                    <div className="navbar-messaging navbar-icons">
-                        <MDChat 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Messaging</div>
-                        {this.selectedBar('messaging')}
-                    </div>
-                    <div className="navbar-notifications navbar-icons">
-                        <MDNote 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Notifications</div>
-                        {this.selectedBar('notifications')}
-                    </div>
-                    <div className="navbar-profile navbar-icons">
-                     <MDProfile 
-                        size={25}/>
-                        <div className='navbar-icon-text'>Profile</div>
-                        {this.selectedBar('profile')}
-                    </div>
+                    </div> */}
                     <NavbarIcons currentPage={this.props.currentPage} icon={'home'} />
+                    <NavbarIcons currentPage={this.props.currentPage} icon={'network'} />
+                    <NavbarIcons currentPage={this.props.currentPage} icon={'schools'} />
+                    <NavbarIcons currentPage={this.props.currentPage} icon={'messaging'} />
+                    <NavbarIcons currentPage={this.props.currentPage} icon={'notifications'} />
+                    <NavbarIcons currentPage={this.props.currentPage} icon={'profile'} />
                 </div>
                 {/* <a href={'http://localhost:8084/auth'} className="login-text">
                     <p className="login nav-button">LOGIN</p>
